@@ -15,6 +15,10 @@ Route::get('/', [
   'uses' => 'AccueilController@welcome',
   'as' => 'accueil',
 ]);
+Route::post('/', [
+  'uses' => 'TachesController@store',
+  'as' => 'taches.store',
+]);
 Route::get('/{prenom}', [
   'uses' => 'TachesController@index',
   'as' => 'taches.index',

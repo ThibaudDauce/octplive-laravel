@@ -9,7 +9,7 @@
 
   <ul>
     @forelse($taches as $tache)
-      <li>{{ $tache }}</li>
+      <li>{{ $tache->titre }}</li>
     @empty
       Il n'y a pas encore de tâches.
     @endforelse

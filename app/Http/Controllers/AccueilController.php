@@ -11,7 +11,7 @@ class AccueilController extends Controller
 {
     public function welcome()
     {
-        $utilisateurs = ['thibaud', 'mathieu'];
+        $utilisateurs = \DB::table('taches')->select('prenom')->distinct()->get();
 
         return view('welcome', compact('utilisateurs'));
     }

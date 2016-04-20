@@ -11,12 +11,18 @@ class TachesController extends Controller
 {
     public function index($prenom)
     {
-        $taches = [
-            'faire les courses',
-            'aller à l\'escalade',
-            'jouer de la musique',
-        ];
+        $taches = Tache::where('prenom', $prenom)->get();
 
         return view('taches', compact('taches', 'prenom'));
+    }
+
+    public function store(Request $request)
+    {
+        $tache = new Tache();
+        $tache->prenom = $request->get('prenom');
+        $tache->titre = $request->get('titre');
+        $tache->save();
+
+        return redirect()->route('taches.index', $request->get('prenom'));
     }
 }
